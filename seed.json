@@ -4,6 +4,31 @@
   },
   "fixtures": [
     {
+      "name": "free_product",
+      "path": "/v1/products",
+      "method": "post",
+      "params": {
+        "name": "Free"
+      }
+    },
+    {
+      "name": "free_price",
+      "path": "/v1/prices",
+      "method": "post",
+      "params": {
+        "product": "${free_product:id}",
+        "lookup_key": "sample_free",
+        "currency": "usd",
+        "unit_amount": 0,
+        "recurring": {
+          "interval": "month"
+        },
+        "metadata": {
+          "sample": "fixed-price"
+        }
+      }
+    },
+    {
       "name": "basic_product",
       "path": "/v1/products",
       "method": "post",
